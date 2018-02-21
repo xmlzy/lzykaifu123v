@@ -1,49 +1,49 @@
 @ECHO OFF
-title [Æô¶¯Æ÷±êÌâ] by [×÷ÕßÓÃ»§Ãû],@lzykaifu123v
+title [å¯åŠ¨å™¨æ ‡é¢˜] by [ä½œè€…ç”¨æˆ·å],@lzykaifu123v
 set t=%date% %time:~0,2%:%time:~3,2% 
 echo.
-echo         »¶Ó­Ê¹ÓÃ[ÕûºÏ°üÃû³Æ]!
-echo               ×÷ÕßQQ:[QQºÅÂë]
+echo         æ¬¢è¿ä½¿ç”¨[æ•´åˆåŒ…åç§°]!
+echo               ä½œè€…QQ:[QQå·ç ]
 echo *************************************************
 echo.
-echo       ÏÖÔÚµÄÊ±¼äÊÇ:%t%
-echo    ÎÂÜ°ÌáÊ¾:ÊäÈëstop¾ÍÄÜ±£´æÊı¾İ²¢¹Ø±Õ·şÎñÆ÷!
+echo       ç°åœ¨çš„æ—¶é—´æ˜¯:%t%
+echo    æ¸©é¦¨æç¤º:è¾“å…¥stopå°±èƒ½ä¿å­˜æ•°æ®å¹¶å…³é—­æœåŠ¡å™¨!
 echo.
 echo *************************************************
-::ÅĞ¶ÏÊÇ·ñµÚÒ»´ÎÆô¶¯
+::åˆ¤æ–­æ˜¯å¦ç¬¬ä¸€æ¬¡å¯åŠ¨
 if not exist %~dp0server.properties (
-	echo ±¾³ÌĞò¼ì²âµ½ÄúÊÇµÚÒ»´ÎÆô¶¯!
-	echo ´ıºËĞÄÎÄ¼şÊÍ·ÅÍê±Ï,ÇëÖØÆô±¾³ÌĞò.
-	java -Xincgc -Xmx2048M -jar Thermos-1.7.10-1614-57-server.jar
-	echo ÊÍ·ÅÍê±Ï,ÕıÔÚÖØÆô!
-	call run.bat
+	echo æœ¬ç¨‹åºæ£€æµ‹åˆ°æ‚¨æ˜¯ç¬¬ä¸€æ¬¡å¯åŠ¨!
+	echo å¾…æ ¸å¿ƒæ–‡ä»¶é‡Šæ”¾å®Œæ¯•,è¯·é‡å¯æœ¬ç¨‹åº.
+	java -Xincgc -Xmx2048M -jar <æ ¸å¿ƒæ–‡ä»¶åç§°>.jar
+	echo é‡Šæ”¾å®Œæ¯•,æ­£åœ¨é‡å¯!
+	call æˆ‘çš„ä¸–ç•ŒæœåŠ¡ç«¯æ™ºèƒ½å¯åŠ¨.bat
 )
-::ÄÚ´æÖÇÄÜ·ÖÅä¿ªÊ¼
-echo ÕıÔÚÎªÄúµÄ·şÎñ¶ËÖÇÄÜ·ÖÅäÄÚ´æ...
+::å†…å­˜æ™ºèƒ½åˆ†é…å¼€å§‹
+echo æ­£åœ¨ä¸ºæ‚¨çš„æœåŠ¡ç«¯æ™ºèƒ½åˆ†é…å†…å­˜...
 echo.
-systeminfo|find "ÎïÀíÄÚ´æ×ÜÁ¿" 
+systeminfo|find "ç‰©ç†å†…å­˜æ€»é‡" 
 FOR /F "eol=; tokens=2,2 delims==" %%i IN ('findstr /i "max-players" server.properties') DO set max-players=%%i    
-set /a RAM=[·şÎñÆ÷ËùÕ¼ÓÃÄÚ´æ(ÒÔMBÎªµ¥Î»£¬Ö»Ğ´Êı×Ö)]+%max-players%*[µ¥¸öÍæ¼ÒËùÕ¼ÓÃ·şÎñÆ÷×ÊÔ´ÄÚ´æ(ÒÔMBÎªµ¥Î»£¬Ö»Ğ´Êı×Ö)]
-systeminfo|find "¿ÉÓÃµÄÎïÀíÄÚ´æ"
-for /f "tokens=2" %%a in ('systeminfo^|findstr ¿ÉÓÃµÄÎïÀíÄÚ´æ') do (
+set /a RAM=[æœåŠ¡å™¨æ‰€å ç”¨å†…å­˜(ä»¥MBä¸ºå•ä½ï¼Œåªå†™æ•°å­—)]+%max-players%*[å•ä¸ªç©å®¶æ‰€å ç”¨æœåŠ¡å™¨èµ„æºå†…å­˜(ä»¥MBä¸ºå•ä½ï¼Œåªå†™æ•°å­—)]
+systeminfo|find "å¯ç”¨çš„ç‰©ç†å†…å­˜"
+for /f "tokens=2" %%a in ('systeminfo^|findstr å¯ç”¨çš„ç‰©ç†å†…å­˜') do (
    for /f "tokens=1,2 delims=," %%y in ("%%a") do if %%y%%z lss %RAM% (
-	echo ÄÚ´æ²»×ã£¬Çë½«Éè¶¨ÈËÊı¼õÉÙ! 
+	echo å†…å­˜ä¸è¶³ï¼Œè¯·å°†è®¾å®šäººæ•°å‡å°‘! 
 	pause
 	start %~dp0server.properties
 	exit
 ) else (
-	echo ÄÚ´æ·ÖÅä³É¹¦!·ÖÅäÄÚ´æ:%RAM% MB
+	echo å†…å­˜åˆ†é…æˆåŠŸ!åˆ†é…å†…å­˜:%RAM% MB
 )
 )
-::ÄÚ´æÖÇÄÜ·ÖÅä½áÊø
+::å†…å­˜æ™ºèƒ½åˆ†é…ç»“æŸ
 echo.
 echo =================================================
 echo.
 pause
 set startime=%t%
 
-java -Xincgc -Xmx%RAM%M -jar <ºËĞÄÎÄ¼şÃû³Æ>.jar
+java -Xincgc -Xmx%RAM%M -jar <æ ¸å¿ƒæ–‡ä»¶åç§°>.jar
 set endtime=%t%
 pause
-echo ¿ªÊ¼Ê±¼ä%startime%£¬½áÊøÊ±¼ä%endtime%
+echo å¼€å§‹æ—¶é—´%startime%ï¼Œç»“æŸæ—¶é—´%endtime%
 pause
